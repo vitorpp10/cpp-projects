@@ -7,7 +7,7 @@ this month's main goal was to migrate from a high-level workflow to system devel
 ## projects
 
 - **01-simple-login-system**:
-    - **topics**: std::string, while (true), control flow, g++ compilation.
+    - **topics**: `std::string`, `while (true)`, `control flow`, `g++ compilation`.
     - **goal**: create a gatekeeper with attempt limits and handling of infinite loops.
 
 - **02-coming-soon**:
