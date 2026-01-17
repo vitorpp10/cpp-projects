@@ -3,7 +3,7 @@
 ### technical overview
 this implementation demonstrates a low-level approach to array manipulation in c++ by utilizing raw pointer arithmetic. instead of allocating auxiliary buffers or using standard library wrappers, the algorithm operates directly on the memory stack, swapping elements via two converging pointers.
 
-### core logic (the hft way)
+### core logic
 * **spatial complexity**: $o(1)$ - zero-copy mechanism. no additional memory is allocated regardless of array size.
 * **temporal complexity**: $o(n/2)$ - optimized traversal that terminates exactly at the midpoint.
 * **pointer arithmetic**: utilizes `ptr++` and `ptr--` to navigate memory addresses rather than relying on index-based access.
