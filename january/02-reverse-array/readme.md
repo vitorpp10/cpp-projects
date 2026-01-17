@@ -17,7 +17,7 @@ this implementation demonstrates a low-level approach to array manipulation in c
 
 ### how to build
 ```
-g++ reverse_array.cpp -o reverse_engine
+g++ 02-reverse-array.cpp -o reverse_engine
 ./reverse_engine
 ```
 
