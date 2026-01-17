@@ -16,19 +16,22 @@ this implementation demonstrates a low-level approach to array manipulation in c
 5. increment `s` and decrement `e` to converge towards the median.
 
 ### how to build
-```bash
+```
 g++ reverse_array.cpp -o reverse_engine
 ./reverse_engine
+```
 
-terminal output snippet
+### terminal output snippet
 
+```
 rodada 0: 50 20 30 40 10 
-rodada 1: 50 40 30 20 10 
+rodada 1: 50 40 30 20 10
+```
 
-what i learned today in practice:
+### what i learned today in practice:
 
-    direct addressing: you didn’t use vetor[i], you worked with physical memory addresses.
+- **direct addressing: you didn’t use vetor[i], you worked with physical memory addresses.**
 
-    converging pointers: a classic technique for high-performance algorithms.
+- **converging pointers: a classic technique for high-performance algorithms.**
 
-    stack management: how to swap values without allocating extra memory.
+- **stack management: how to swap values without allocating extra memory.**
