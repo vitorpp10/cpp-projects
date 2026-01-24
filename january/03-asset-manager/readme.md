@@ -1,10 +1,10 @@
-# Asset Manager
+# 03-asset-manager
 
 Overview
 --------
 This project implements a basic financial asset management system. It focuses on using C++ classes to move away from simple structs, ensuring data integrity through encapsulation and local file persistence (.db).
 
-Technical Documentation
+Technical Overview
 -----------------------------------
 
 ### 1. Encapsulation & Class Architecture
