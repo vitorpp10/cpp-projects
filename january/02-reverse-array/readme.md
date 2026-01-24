@@ -1,4 +1,4 @@
-# in-place array reversal logic
+# 02-reverse-array
 
 ### technical overview
 this implementation demonstrates a low-level approach to array manipulation in c++ by utilizing raw pointer arithmetic. instead of allocating auxiliary buffers or using standard library wrappers, the algorithm operates directly on the memory stack, swapping elements via two converging pointers.
