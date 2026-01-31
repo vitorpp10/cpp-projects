@@ -18,8 +18,9 @@ this month's main goal was to migrate from a high-level workflow to system devel
     - **topics**: `c++ class-based design (encapsulation over structs)`, `filesystem persistence with flat-file .db`, `manual parsing and memory reconstruction`.
     - **goal**: build a basic financial asset management system that ensures data integrity through encapsulation, persists state locally using files, and reconstructs objects efficiently in memory using low-level c++ mechanisms.
 
-- **04-coming-soon**:
-    - **topics**: awaiting next goal.
+- **04-sys-monitor**:
+    - **topics**: `linux kernel introspection via /proc/meminfo`, `low-level c++ file i/o and string parsing`, `manual text tokenization with stringstream`, `performance-oriented compilation (-wall, -o3)`
+    - **goal**: build a lightweight, system-wide linux memory monitor that reads kernel data directly from /proc, exposes it as a cli tool, and follows professional build, deploy, and automation practices used in real-world systems engineering.
 
 ## tools mastered
 
