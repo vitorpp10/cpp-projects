@@ -14,8 +14,9 @@ this month's main goal was to migrate from a high-level workflow to system devel
     - **topics**: `pointer arithmetic`, `in-place memory manipulation`, `vconverging pointers strategy`, `vvspatial complexity o(1)`, `g++ toolchain`.
     - **goal**: implement a high-performance array reversal algorithm by manipulating raw memory addresses directly, avoiding heap allocation or auxiliary buffers to simulate low-latency data processing.
 
-- **03-coming-soon**:
-    - **topics**: awaiting next goal.
+- **03-asset-manager**:
+    - **topics**: `c++ class-based design (encapsulation over structs)`, `filesystem persistence with flat-file .db`, `manual parsing and memory reconstruction`.
+    - **goal**: build a basic financial asset management system that ensures data integrity through encapsulation, persists state locally using files, and reconstructs objects efficiently in memory using low-level c++ mechanisms.
 
 - **04-coming-soon**:
     - **topics**: awaiting next goal.
