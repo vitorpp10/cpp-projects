@@ -6,7 +6,7 @@ this month's main goal was to dive deep into linux mechanisms, focusing on advan
 
 ## projects
 
-### mini-shell
+### mini_shell
 * **topics:** process creation (`fork`), binary execution (`execve`), zombie process handling (`waitpid`), built-in commands (`chdir`), memory leak prevention.
 * **goal:** engineer a functional linux terminal emulator (repl) capable of executing external binaries, managing background execution state (`&`), and preventing resource leaks.
 
