@@ -1,49 +1,52 @@
 #include<iostream>
-#include<fcntl.h>
 #include<unistd.h>
-#include<cstdint>
 #include<sys/types.h>
+#include<sys/wait.h>
 
 int main()
 {
-  int x = 5;
-  long ps = sysconf(_SC_PAGE_SIZE);
+  int count = 5;
+  int wstatus;
+  int pai = getpid();
+  std::cout << "PID dad: " << pai << std::endl << std::endl;
 
-  int* ptr = &x;
-  size_t index = uintptr_t(ptr) / ps;
-  size_t off1 = uintptr_t(ptr) % ps;
-
-  int fd = open("/proc/self/pagemap", O_RDONLY);
-
-  if (fd < 0) 
-  { 
-    std::cout << "-1 (1) " << std::endl;
-    exit(EXIT_FAILURE); 
-  }
-
-  size_t off2 = index * 8;
-  uint64_t value64;
-  lseek(fd, off2, SEEK_SET);
-  ssize_t n = read(fd, &value64, sizeof(value64)); 
-
-  if (n != 8)
+  for (int i = 0; i < 5; i++)
   {
-    std::cout << "-1 (2) " << std::endl;
-    exit(EXIT_FAILURE);
+     pid_t pid = fork();
+    if(pid == 0)
+    {
+      sleep(1);
+      exit(0);
+    }
+    else 
+    {
+      continue;
+    }
   }
+  
 
-  uint64_t ram = (value64 >> 63) & 1;
-  uint64_t mask = 0x7FFFFFFFFFFFFF;
-  size_t PFN = value64 & mask;
+  while (count > 0)
+  {
+    std::cout << "dad works..." << std::endl;
+    sleep(1);
 
-  if (ram == true)
-  {
-    size_t fisic_adress = (PFN * ps) + off1;
-    std::cout << "Virtual: " << ptr << std::endl << "Físico: " << fisic_adress << std::endl;
-  }
-  else 
-  {
-    std::cout << "Página não está presente na RAM física (talvez em Swap) " << std::endl;
+    pid_t dead_pid = waitpid(-1, &wstatus, WNOHANG);
+    if (dead_pid > 0)
+    {
+      std::cout << "someone die, PID: " << dead_pid << std::endl;
+      count--;
+      continue;
+    } 
+    else if (dead_pid == 0)
+    {
+      std::cout << "always process lives " << std::endl;
+      continue;
+    }
+    else if (dead_pid < 0)
+    {
+      std::cout << "finished" << std::endl;
+      break;
+    }
   }
   return 0;
 }
