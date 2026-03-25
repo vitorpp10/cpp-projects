@@ -17,7 +17,6 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `sys-monitor/`: a lightweight linux memory monitor that reads kernel data directly from /proc/meminfo, exposing it as a cli tool using professional build practices (-wall, -o3).
 
 * **`storage/`** — focus: understanding how data is physically stored and retrieved from disk.
-  * `mini-db-kv/`: a persistent key-value store built from scratch. manages its own binary format, implements an append-only log for high-performance writes, and maintains a ram-based hash index for o(1) retrieval. guarantees byte-level alignment with struct packing.
 
 * **`system-io/`** — focus: in-depth exploration of linux syscalls and filesystem behavior, bypassing standard c++ streams.
   * `sequential-vs-random-write/`: benchmarks the latency penalty of lseek by comparing sequential append operations versus random in-place updates.
