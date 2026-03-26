@@ -30,6 +30,7 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `fork-generator/`: explores basic process management by creating multiple child processes with fork(), while the parent monitors and collects termination status using waitpid() in non-blocking mode.
   * `fork-exec-shell/`: implements a minimal interactive shell loop that parses user input, forks a child process, and replaces its memory image using execvp.
   * `pipe-latency/`: measures ipc latency using two unidirectional pipes between a parent and child, performing a high-frequency ping-pong of single-byte messages to time round-trip duration.
+  * `signal-ipc-pipeline/`: integrates pipes for one-way task transmission and signals (sigterm) to trigger a graceful child process shutdown, ensuring proper zombie reaping.
 
 * **`memory/`** — focus: memory allocation, heap management, raw pointers, and execution faults.
   * `custom-malloc/`: implements a minimal userspace heap allocator using sbrk() to request memory from the kernel, tracking blocks with a linked list of headers for first-fit recycling.
@@ -44,6 +45,7 @@ this repository documents my journey in low-latency systems engineering. the foc
 * **`experiments/`** — focus: unstructured sandbox for testing new concepts.
   * `scratch/`: temporary files and quick syntax checks.
   * `quick-tests/`: mini-benchmarks for specific functions.
+   * `pipe-flood/`: continuously writes and reads from a pipe to observe basic i/o synchronization and buffer behavior.
   * `one-off/`: isolated single-file scripts that do not fit a larger module.
 
 ## how to run
