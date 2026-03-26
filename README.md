@@ -16,8 +16,10 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `asset-manager/`: builds a financial asset management system using c++ class-based encapsulation, persisting state locally via flat-file .db, and manually reconstructing objects in memory.
   * `sys-monitor/`: a lightweight linux memory monitor that reads kernel data directly from /proc/meminfo, exposing it as a cli tool using professional build practices (-wall, -o3).
 
+
 * **`storage/`** — focus: understanding how data is physically stored and retrieved from disk.
   * ***coming soon: log-structured storage engine***
+
 
 * **`system-io/`** — focus: in-depth exploration of linux syscalls and filesystem behavior, bypassing standard c++ streams.
   * `sequential-vs-random-write/`: benchmarks the latency penalty of lseek by comparing sequential append operations versus random in-place updates.
@@ -26,11 +28,13 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `mmap-editor/`: demonstrates memory-mapped file manipulation by creating a file, mapping it into ram with mmap(), writing data directly, and syncing changes back to disk.
   * `fd-stream/`: uses raw posix system calls (open, read, write, close) and file descriptors to read a file and output to stdout.
 
+
 * **`processes/`** — focus: inter-process communication, scheduling, and process lifecycle.
   * `fork-generator/`: explores basic process management by creating multiple child processes with fork(), while the parent monitors and collects termination status using waitpid() in non-blocking mode.
   * `fork-exec-shell/`: implements a minimal interactive shell loop that parses user input, forks a child process, and replaces its memory image using execvp.
   * `pipe-latency/`: measures ipc latency using two unidirectional pipes between a parent and child, performing a high-frequency ping-pong of single-byte messages to time round-trip duration.
   * `signal-ipc-pipeline/`: integrates pipes for one-way task transmission and signals (sigterm) to trigger a graceful child process shutdown, ensuring proper zombie reaping.
+
 
 * **`memory/`** — focus: memory allocation, heap management, raw pointers, and execution faults.
   * `custom-malloc/`: implements a minimal userspace heap allocator using sbrk() to request memory from the kernel, tracking blocks with a linked list of headers for first-fit recycling.
@@ -42,17 +46,20 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `pagemap/`: translates a virtual memory address to its corresponding physical address by reading /proc/self/pagemap, illustrating page frame calculation.
   * `manual-reallocation/`: illustrates dynamic array mechanics by allocating a larger heap block, copying old data, and safely freeing previous memory to prevent internal fragmentation.
 
+
 * **`experiments/`** — focus: unstructured sandbox for testing new concepts.
   * `scratch/`: temporary files and quick syntax checks.
   * `quick-tests/`: mini-benchmarks for specific functions.
-   * `pipe-flood/`: continuously writes and reads from a pipe to observe basic i/o synchronization and buffer behavior.
+    * `pipe-flood/`: continuously writes and reads from a pipe to observe basic i/o synchronization and buffer behavior.
   * `one-off/`: isolated single-file scripts that do not fit a larger module.
+    * `nonblocking-wait/`: tests concurrent parent-child execution by polling the child's status using waitpid with the wnohang flag.
+    * `sigint-handler/`: simple isolated script replacing the default ctrl+c termination with a custom sigint signal handler for graceful exits.  
+
 
 ## how to run
 
 each project folder contains self-contained experiments. standard compilation follows this format:
 
-```
+```bash
 g++ -wall -wextra -o3 folder-name/main.cpp -o app_name
 ./app_name
-```
