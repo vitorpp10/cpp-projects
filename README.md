@@ -16,7 +16,7 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `asset-manager/`: builds a financial asset management system using c++ class-based encapsulation, persisting state locally via flat-file .db, and manually reconstructing objects in memory.
   * `sys-monitor/`: a lightweight linux memory monitor that reads kernel data directly from /proc/meminfo, exposing it as a cli tool using professional build practices (-wall, -o3).
 
-----
+
 
 * **`storage/`** — focus: understanding how data is physically stored and retrieved from disk.
   * ***coming soon: log-structured storage engine***
