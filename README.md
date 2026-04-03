@@ -36,6 +36,9 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `pipe-latency/`: measures ipc latency using two unidirectional pipes between a parent and child, performing a high-frequency ping-pong of single-byte messages to time round-trip duration.
   * `signal-ipc-pipeline/`: integrates pipes for one-way task transmission and signals (sigterm) to trigger a graceful child process shutdown, ensuring proper zombie reaping.
   * `fork-vs-thread/`: benchmarks the time overhead and memory footprint (rss) of spawning 10,000 processes via fork() compared to 10,000 posix threads, utilizing getrusage() for precise kernel-level metrics.
+  * `race-condition/`: demonstrates thread interference and lost updates by having multiple pthreads increment a shared global counter concurrently without any synchronization.
+  * `mutex-lock/`: mitigates the data race using pthread_mutex, ensuring thread safety while benchmarking the time and context-switch overhead introduced by kernel-level blocking.
+  * `atomic-operations/`: implements lock-free synchronization using std::atomic, comparing the performance gain and lower latency of hardware-level memory barriers versus traditional system call mutexes.
 
 
 * **`memory/`** — focus: memory allocation, heap management, raw pointers, and execution faults.
