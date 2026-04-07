@@ -39,7 +39,9 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `race-condition/`: demonstrates thread interference and lost updates by having multiple pthreads increment a shared global counter concurrently without any synchronization.
   * `mutex-lock/`: mitigates the data race using pthread_mutex, ensuring thread safety while benchmarking the time and context-switch overhead introduced by kernel-level blocking.
   * `atomic-operations/`: implements lock-free synchronization using std::atomic, comparing the performance gain and lower latency of hardware-level memory barriers versus traditional system call mutexes.
-
+  * `condition-variable/`: introduces thread synchronization using std::condition_variable and std::unique_lock to manage a basic unbounded producer-consumer workflow.
+  * `bounded-buffer/`: implements the classic bounded-buffer problem using dual condition variables to prevent memory overflow and tightly coordinate thread pacing.
+  * `thread-safe-queue/`: encapsulates synchronization primitives into a cohesive c++ class, building a reusable thread-safe queue data structure for robust concurrent state management.
 
 * **`memory/`** — focus: memory allocation, heap management, raw pointers, and execution faults.
   * `custom-malloc/`: implements a minimal userspace heap allocator using sbrk() to request memory from the kernel, tracking blocks with a linked list of headers for first-fit recycling.
