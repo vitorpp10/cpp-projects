@@ -42,6 +42,7 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `condition-variable/`: introduces thread synchronization using std::condition_variable and std::unique_lock to manage a basic unbounded producer-consumer workflow.
   * `bounded-buffer/`: implements the classic bounded-buffer problem using dual condition variables to prevent memory overflow and tightly coordinate thread pacing.
   * `thread-safe-queue/`: encapsulates synchronization primitives into a cohesive c++ class, building a reusable thread-safe queue data structure for robust concurrent state management.
+  * `thread-pool-pattern/`: constructs a multi-worker thread pool utilizing the custom thread-safe queue, implementing the poison pill technique for graceful shutdown and benchmarking concurrent throughput.
 
 * **`memory/`** — focus: memory allocation, heap management, raw pointers, and execution faults.
   * `custom-malloc/`: implements a minimal userspace heap allocator using sbrk() to request memory from the kernel, tracking blocks with a linked list of headers for first-fit recycling.
