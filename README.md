@@ -30,6 +30,7 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `fd-stream/`: uses raw posix system calls (open, read, write, close) and file descriptors to read a file and output to stdout.
   * `getdents-syscall/`: explores filesystem internals by bypassing standard libraries and invoking the sys_getdents64 syscall directly, reading raw byte buffers and casting them into linux_dirent64 structs to extract inodes.
   * `dirent-classifier/`: extends the raw directory parser by evaluating the d_type field within the linux_dirent64 structure, dynamically classifying kernel objects into regular files, directories, and symlinks.
+  * `direct-io-bypass/`: bypasses the linux page cache using the o_direct flag, requiring manual memory alignment via posix_memalign to satisfy hardware dma constraints and measuring raw i/o latency.
 
 
 * **`processes/`** — focus: inter-process communication, scheduling, and process lifecycle.
