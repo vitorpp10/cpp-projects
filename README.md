@@ -28,6 +28,8 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `fsync-latency/`: investigates the cost of durability by measuring the performance gap between volatile page cache writes and hardware synchronized writes (fsync).
   * `mmap-editor/`: demonstrates memory-mapped file manipulation by creating a file, mapping it into ram with mmap(), writing data directly, and syncing changes back to disk.
   * `fd-stream/`: uses raw posix system calls (open, read, write, close) and file descriptors to read a file and output to stdout.
+  * `getdents-syscall/`: explores filesystem internals by bypassing standard libraries and invoking the sys_getdents64 syscall directly, reading raw byte buffers and casting them into linux_dirent64 structs to extract inodes.
+  * `dirent-classifier/`: extends the raw directory parser by evaluating the d_type field within the linux_dirent64 structure, dynamically classifying kernel objects into regular files, directories, and symlinks.
 
 
 * **`processes/`** — focus: inter-process communication, scheduling, and process lifecycle.
