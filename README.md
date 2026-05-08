@@ -48,6 +48,8 @@ this repository documents my journey in low-latency systems engineering. the foc
   * `bounded-buffer/`: implements the classic bounded-buffer problem using dual condition variables to prevent memory overflow and tightly coordinate thread pacing.
   * `thread-safe-queue/`: encapsulates synchronization primitives into a cohesive c++ class, building a reusable thread-safe queue data structure for robust concurrent state management.
   * `thread-pool-pattern/`: constructs a multi-worker thread pool utilizing the custom thread-safe queue, implementing the poison pill technique for graceful shutdown and benchmarking concurrent throughput.
+  * `getdents-thread-pool/`: integrates raw linux filesystem syscalls (sys_getdents64) with a concurrent thread pool, using a producer thread to rapidly traverse directories and multiple consumer threads to process inodes concurrently via a thread-safe queue.
+  * `mmap-ipc-signal/`: demonstrates inter-thread communication and synchronization using shared memory mapping (mmap). a producer thread modifies the mapped file and forces hardware sync (msync), utilizing standard condition variables to safely signal a waiting consumer thread to read the updated memory.
 
 * **`memory/`** — focus: memory allocation, heap management, raw pointers, and execution faults.
   * `custom-malloc/`: implements a minimal userspace heap allocator using sbrk() to request memory from the kernel, tracking blocks with a linked list of headers for first-fit recycling.
@@ -66,7 +68,8 @@ this repository documents my journey in low-latency systems engineering. the foc
     * `pipe-flood/`: continuously writes and reads from a pipe to observe basic i/o synchronization and buffer behavior.
   * `one-off/`: isolated single-file scripts that do not fit a larger module.
     * `nonblocking-wait/`: tests concurrent parent-child execution by polling the child's status using waitpid with the wnohang flag.
-    * `sigint-handler/`: simple isolated script replacing the default ctrl+c termination with a custom sigint signal handler for graceful exits.  
+    * `sigint-handler/`: simple isolated script replacing the default ctrl+c termination with a custom sigint signal handler for graceful exits.
+    * `parallel-mmap-scanner/`: an advanced capstone experiment combining process creation (fork), raw directory parsing (getdents64), and zero-copy file mapping (mmap). implements data parallelism by spawning multiple threads to scan isolated memory chunks concurrently, utilizing atomic counters and getrusage for system-level benchmarking.
 
 
 ## how to run
