@@ -13,7 +13,7 @@ this repository documents my journey in low-latency systems engineering. the foc
 * **`fundamentals/`** — focus: transition to system development in c++, terminal tools, and performance-driven logic.
   * `login-system/`: creates a gatekeeper with attempt limits and handling of infinite loops.
   * `reverse-array/`: implements a high-performance array reversal algorithm by manipulating raw memory addresses directly, avoiding heap allocation (o(1) spatial complexity).
-  * `asset-manager/`: builds a financial asset management system using c++ class-based encapsulation, persisting state locally via flat-file .db, and manually reconstructing objects in memory.
+  * `asset-manager/`: buildss a financial asset management system using c++ class-based encapsulation, persisting state locally via flat-file .db, and manually reconstructing objects in memory.
   * `sys-monitor/`: a lightweight linux memory monitor that reads kernel data directly from /proc/meminfo, exposing it as a cli tool using professional build practices (-wall, -o3).
 
 
